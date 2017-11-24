@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="<?php echo $ENCODING; ?>" />
+		<title>Table name list <?php echo $DATABASE_NAME ?></title>
+		<base href="<?php echo $SCHEME.'://'.$HOST.':'.$PORT.$BASE.'/'; ?>" />
+	</head>
+	<body>
+            <h1 id="top">
+                Database Table Export (<?php echo $DATABASE_NAME ?>)
+            </h1>
+            
+            
+            <h2>Tables</h2>
+            <ul>
+                <?php foreach($table_name_list AS $table_name) {
+                    ?>
+                    <li>
+                        <a href="<?php echo $SCHEME.'://'.$HOST.':'.$PORT.$BASE.'/'.$table_name ?>"><?php echo $table_name ?></a>
+                    </li>
+                    <?php
+                } ?>
+            </ul>
+            
+            <hr />
+            
+            <h2>Views</h2>
+            <ul>
+                <?php foreach($view_name_list AS $name) {
+                    ?>
+                    <li>
+                        <a href="<?php echo $SCHEME.'://'.$HOST.':'.$PORT.$BASE.'/'.$table_name ?>"><?php echo $name ?></a>
+                    </li>
+                    <?php
+                } ?>
+            </ul>
+            <a href="#top">Go to top</a>
+            
+	</body>
+</html>
