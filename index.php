@@ -15,9 +15,7 @@ $f3->route('GET /',
 	function($f3) {
             $f3->set('CACHE',TRUE);
             $cache = \Cache::instance();
-            $cache->clear('table_name_list');
-            //if ($cache->exists('table_name_list')) {
-            if (false) {
+            if ($cache->exists('table_name_list')) {
                 $table_name_list = $cache->get('table_name_list');
                 $view_name_list = $cache->get('view_name_list');
             }
