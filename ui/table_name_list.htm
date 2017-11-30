@@ -9,17 +9,19 @@
             <h1 id="top">
                 Database Table Export (<?php echo $DATABASE_NAME ?>)
             </h1>
-            
+            <a href="http://blog.pulipuli.info/2017/11/csv-to-sql-tablecsv-import-csv-file.html#postcatacsv-to-sql-tablecsv-import-csv-file.html0_anchor0" target="csv_to_table">CSV to SQL Table</a>
             
             <h2>Tables</h2>
             <ul>
-                <?php foreach($table_name_list AS $table_name) {
+                <?php 
+                foreach($table_name_list AS $table_name) {
                     ?>
                     <li>
                         <a href="<?php echo $SCHEME.'://'.$HOST.':'.$PORT.$BASE.'/'.$table_name ?>"><?php echo $table_name ?></a>
                     </li>
                     <?php
-                } ?>
+                } 
+                ?>
             </ul>
             
             <hr />
@@ -29,7 +31,7 @@
                 <?php foreach($view_name_list AS $name) {
                     ?>
                     <li>
-                        <a href="<?php echo $SCHEME.'://'.$HOST.':'.$PORT.$BASE.'/'.$table_name ?>"><?php echo $name ?></a>
+                        <a href="<?php echo $SCHEME.'://'.$HOST.':'.$PORT.$BASE.'/'.$name ?>"><?php echo $name ?></a>
                     </li>
                     <?php
                 } ?>
