@@ -12,31 +12,81 @@
             <a href="http://blog.pulipuli.info/2017/11/csv-to-sql-tablecsv-import-csv-file.html#postcatacsv-to-sql-tablecsv-import-csv-file.html0_anchor0" target="csv_to_table">CSV to SQL Table</a>
             
             <h2>Tables</h2>
-            <ul>
-                <?php 
-                foreach($table_name_list AS $table_name) {
+            <table border='1'>
+                <thead>
+                    <th>Table Name</th>
+                    <th>CSV format</th>
+                    <th>ARFF format</th>
+                </thead>
+                <tbody>
+                    <?php 
+                    foreach($table_name_list AS $table_name) {
+                        ?>
+                        <tr>
+                            <td>
+                                <a href="<?php echo $SCHEME.'://'.$HOST.':'.$PORT.$BASE.'/'.$table_name . '.csv' ?>"><?php echo $table_name ?></a>
+                            </td>
+                            <td>
+                                <a href="<?php echo $SCHEME.'://'.$HOST.':'.$PORT.$BASE.'/'.$table_name . '.csv' ?>"><button type="button">DOWNLOAD</button></a>
+                                <button class="clipboard-button" type="button" 
+                                        onclick="alert('Copy: <?php echo $SCHEME.'://'.$HOST.':'.$PORT.$BASE.'/'. $table_name . '.csv' ?>')"
+                                        data-clipboard-text="<?php echo $SCHEME.'://'.$HOST.':'.$PORT.$BASE.'/'.$table_name . '.csv' ?>">COPY URL</button>
+                            </td>
+                            <td>
+                                <a href="<?php echo $SCHEME.'://'.$HOST.':'.$PORT.$BASE.'/'.$table_name . '.arff' ?>"><button type="button">DOWNLOAD</button></a>
+                                <button class="clipboard-button" type="button" 
+                                        onclick="alert('Copy: <?php echo $SCHEME.'://'.$HOST.':'.$PORT.$BASE.'/'. $table_name . '.arff' ?>')"
+                                        data-clipboard-text="<?php echo $SCHEME.'://'.$HOST.':'.$PORT.$BASE.'/'.$table_name . '.arff' ?>">COPY URL</button>
+                            </td>
+                        </tr>
+                        <?php
+                    } 
                     ?>
-                    <li>
-                        <a href="<?php echo $SCHEME.'://'.$HOST.':'.$PORT.$BASE.'/'.$table_name ?>"><?php echo $table_name ?></a>
-                    </li>
-                    <?php
-                } 
-                ?>
-            </ul>
-            
+                </tbody>
+            </table>
             <hr />
             
             <h2>Views</h2>
-            <ul>
-                <?php foreach($view_name_list AS $name) {
+            
+            <table border='1'>
+                <thead>
+                    <th>View Name</th>
+                    <th>CSV format</th>
+                    <th>ARFF format</th>
+                </thead>
+                <tbody>
+                    <?php 
+                    foreach($view_name_list AS $table_name) {
+                        ?>
+                        <tr>
+                            <td>
+                                <a href="<?php echo $SCHEME.'://'.$HOST.':'.$PORT.$BASE.'/'.$table_name . '.csv' ?>"><?php echo $table_name ?></a>
+                            </td>
+                            <td>
+                                <a href="<?php echo $SCHEME.'://'.$HOST.':'.$PORT.$BASE.'/'. $table_name . '.csv' ?>"><button type="button">DOWNLOAD</button></a>
+                                <button class="clipboard-button" type="button" 
+                                        onclick="alert('Copy: <?php echo $SCHEME.'://'.$HOST.':'.$PORT.$BASE.'/'. $table_name . '.csv' ?>')"
+                                        data-clipboard-text="<?php echo $SCHEME.'://'.$HOST.':'.$PORT.$BASE.'/'. $table_name . '.csv' ?>">COPY URL</button>
+                            </td>
+                            <td>
+                                <a href="<?php echo $SCHEME.'://'.$HOST.':'.$PORT.$BASE.'/'. $table_name . '.arff' ?>"><button type="button">DOWNLOAD</button></a>
+                                <button class="clipboard-button" type="button" 
+                                        onclick="alert('Copy: <?php echo $SCHEME.'://'.$HOST.':'.$PORT.$BASE.'/'. $table_name . '.arff' ?>')"
+                                        data-clipboard-text="<?php echo $SCHEME.'://'.$HOST.':'.$PORT.$BASE.'/'. $table_name . '.arff' ?>">COPY URL</button>
+                            </td>
+                        </tr>
+                        <?php
+                    } 
                     ?>
-                    <li>
-                        <a href="<?php echo $SCHEME.'://'.$HOST.':'.$PORT.$BASE.'/'.$name ?>"><?php echo $name ?></a>
-                    </li>
-                    <?php
-                } ?>
-            </ul>
+                </tbody>
+            </table>
             <a href="#top">Go to top</a>
             
+            <!-- -------------------------------------- -->
+            
+            <script src="<?php echo $SCHEME.'://'.$HOST.':'.$PORT.$BASE.'/ui/lib/clipboard.js/clipboard.min.js'; ?>"></script>
+            <script>
+                new Clipboard('.clipboard-button');
+            </script>
 	</body>
 </html>
