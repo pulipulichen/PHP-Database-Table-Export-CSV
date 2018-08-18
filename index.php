@@ -1,4 +1,5 @@
 <?php
+ini_set('max_execution_time', 30000);
 
 // Kickstart the framework
 $f3=require('lib/base.php');
